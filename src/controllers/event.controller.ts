@@ -37,7 +37,7 @@ const getEventById: RequestHandler = AsyncHandler(
 const createEvent: RequestHandler = AsyncHandler(
     async (req: Request, res: Response): Promise<void> => {
         const { user, body } = req;
-        body.createdBy = user.id; 
+        body.createdBy = user.id;
         const result = await EventService.createEvent(body);
         res
             .status(HttpCode.CREATED)
@@ -71,10 +71,24 @@ const deleteEvent: RequestHandler = AsyncHandler(
     },
 );
 
+
+// @desc    Get event statistics
+// @route   GET /api/events/stats
+// @access  Private
+const getEventStats: RequestHandler = AsyncHandler(
+    async (req: Request, res: Response): Promise<void> => {
+        const result = await EventService.getEventStats();
+        res.status(HttpCode.OK).json({
+            success: true, message: '', data: result
+        });
+    },
+);
+
 export default {
     getAllEvents,
     getEventById,
     createEvent,
     updateEvent,
     deleteEvent,
+    getEventStats
 };

@@ -1,7 +1,7 @@
 
 # 🎉 Event Platform – Backend API
 
-This is the backend for a **collaborative event management platform** built using **Node.js, Express.js, and MongoDB** (not MEAN), following a **monolith architecture**. It enables users to create, manage, and set number of  participate in events updates.
+This is the backend for a **collaborative event management platform** built using **Node.js, Express.js, and MongoDB**, following a **monolith architecture**. It enables users to create, manage, and set number of  participate in events updates.
 
 
 ## ✨ Features
@@ -93,7 +93,7 @@ make help        # View all available make targets
 ├── logs/                    # Application logs
 ├── public/ 
 ├── src/
-│   ├── constants/           # Enums, roles, status codes
+│   ├── constants/           # Enums, status codes
 │   ├── core/                # Auth middleware, base services
 │   ├── docs/                # OpenAPI YAML files
 │   ├── controllers/         # Request handlers (auth, events, users)
@@ -124,7 +124,7 @@ make help        # View all available make targets
 
 - **URL**: [http://localhost:3001/api-docs](http://localhost:3001/api-docs)
 - **Format**: YAML files stored in `src/docs/`
-- **Tags**: User, Auth, Role, Event, Comment
+- **Tags**: User, Auth, Event
 
 ### API Endpoints Overview
 
@@ -279,7 +279,7 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 ## 🙏 Acknowledgments
 
-- Built with the MEAN stack
+- Built with the backend
 - Inspired by modern event platforms
 - Community contributions welcome
 

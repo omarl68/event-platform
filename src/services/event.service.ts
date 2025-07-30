@@ -50,6 +50,14 @@ class EventService {
         }
         return await eventRepository.remove(id);
     }
+
+    static async getEventStats() {
+        const stats = await eventRepository.getStatsEvents();
+        if (!stats) {
+            throw new ErrorHandler('No event statistics found', HttpCode.NOT_FOUND);
+        }
+        return stats;
+    }
 }
 
 export default EventService;

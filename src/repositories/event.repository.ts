@@ -43,6 +43,27 @@ const edit = async (id: Types.ObjectId, item: object) =>
 
 const remove = async (id: Types.ObjectId) => await Event.findByIdAndDelete(id);
 
+const getStatsEvents = async () => {
+    console.log('Fetching event statistics...');
+    const stats = await Event.aggregate([
+        {
+            $group: {
+                _id: 1,
+                totalEvents: { $sum: 1 },
+                totalParticipants: { $sum: '$numberOfParticipants' },
+            },
+        },
+        {
+            $project: {
+                _id: 0,
+                totalEvents: 1,
+                totalParticipants: 1,
+            },
+        },
+    ]);
+    return stats.length > 0 ? stats[0] : { totalEvents: 0, totalParticipants: 0 };
+}
+
 export default {
     getAll,
     getById,
@@ -51,4 +72,5 @@ export default {
     create,
     edit,
     remove,
+    getStatsEvents
 };

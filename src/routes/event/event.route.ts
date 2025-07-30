@@ -15,6 +15,11 @@ router.route('/events')
         EventController.createEvent
     );
 
+router.get('/events/stats',
+    Authorization.Authenticated,
+    EventController.getEventStats
+);
+
 router.route('/events/:id')
     .get(
         Authorization.Authenticated,

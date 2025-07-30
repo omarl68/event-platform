@@ -40,6 +40,21 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Success'
+  /api/events/stats:
+    get:
+      tags:
+        - Event
+      summary: Get event statistics
+      description: Returns statistics about events
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Success'
 
   /api/events/{id}:
     get:
