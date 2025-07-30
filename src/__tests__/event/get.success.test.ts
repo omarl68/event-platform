@@ -45,4 +45,14 @@ describe('EVENT GET - SUCCESS', () => {
     expect(res.body).toHaveProperty('success', true);
     expect(res.body.data).toHaveProperty('title', 'Get Event');
   });
+
+    it('should get event statistics', async () => {
+        const res = await request(app)
+        .get('/api/events/stats')
+        .set('Authorization', `Bearer ${token}`);
+        expect(res.statusCode).toBe(200);
+        expect(res.body).toHaveProperty('success', true);
+        expect(res.body.data).toHaveProperty('totalEvents');
+        expect(res.body.data).toHaveProperty('totalParticipants');
+    });
 });
