@@ -1,0 +1,9 @@
+tags:
+  - name: User
+    description: Everything about Users
+
+  - name: Auth
+    description: Everything about Authentication
+
+  - name: Event
+    description: Everything about Events

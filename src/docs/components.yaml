@@ -1,0 +1,125 @@
+components:
+  schemas:
+    UserLogin:
+      type: object
+      required:
+        - email
+        - password
+      properties:
+        email:
+          type: string
+          description: The email of the user
+        password:
+          type: string
+          description: The password of the user
+    UserRegister:
+      type: object
+      required:
+        - firstName
+        - lastName
+        - email
+        - password
+      properties:
+        firstName:
+          type: string
+          description: The lastName of the user
+        lastName:
+          type: string
+          description: The firstName of the user
+        email:
+          type: string
+          description: The email of the user
+        password:
+          type: string
+          description: The password of the user
+
+    UpdateUser:
+      type: object
+      properties:
+        firstName:
+          type: string
+          description: The lastName of the user
+        lastName:
+          type: string
+          description: The firstName of the user
+
+    UpdateUserPassword:
+      type: object
+      properties:
+        oldPassword:
+          type: string
+          description: The oldPassword of the user
+        password:
+          type: string
+          description: The new password of the user
+        confirmPassword:
+          type: string
+          description: The confirmPassword of the user
+
+    CreateEvent:
+      type: object
+      required:
+        - title
+        - date
+        - location
+      properties:
+        title:
+          type: string
+          description: The title of the event
+        date:
+          type: string
+          format: date-time
+          description: The date and time of the event
+        location:
+          type: string
+          description: The location of the event
+        numberOfParticipants:
+          type: integer
+          format: int32
+          description: The number of participants for the event
+
+    UpdateEvent:
+      type: object
+      properties:
+        title:
+          type: string
+          description: The title of the event
+        date:
+          type: string
+          format: date-time
+          description: The date and time of the event
+        location:
+          type: string
+          description: The location of the event
+        numberOfParticipants:
+          type: integer
+          format: int32
+          description: The number of participants for the event
+
+    Success:
+      type: object
+      properties:
+        success:
+          type: boolean
+          default: true
+        message:
+          type: string
+        data:
+          type: object
+
+    Error:
+      type: object
+      properties:
+        success:
+          type: boolean
+          default: false
+        statusCode:
+          type: integer
+          description: The HTTP status code
+        message:
+          type: string
+
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer

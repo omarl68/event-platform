@@ -1,0 +1,36 @@
+services:
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+      - /app/node_modules
+    ports:
+      - '${PORT}:${PORT}'
+    environment:
+      - NODE_ENV=development
+      - MONGO_URI=mongodb://mongodb:27017/${DB_NAME:-event_platform}
+    env_file:
+      - .env
+    depends_on:
+      - mongodb
+    networks:
+      - event-app
+
+  mongodb:
+    image: mongo
+    ports:
+      - "${MONGO_PORT}:${MONGO_PORT}"
+    volumes:
+      - mongodb-data:/data/mongodb
+    networks:
+      - event-app
+
+volumes:
+  mongodb-data:
+
+networks:
+  event-app:
+    name: ${NETWORK_NAME}
+    driver: bridge
