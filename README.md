@@ -135,6 +135,44 @@ make help        # View all available make targets
 
 ---
 
+
+## 🧪 Example Data
+
+### 👤 Example User
+```json
+{
+  "email": "john.doe@example.com",
+  "password": "123456Aa"
+}
+```
+
+### 📆 Example Event
+```json
+{
+  "title": "Team Hackathon",
+  "date": "2025-08-15",
+  "location": "Berlin",
+  "nbParticipants": 50
+}
+```
+
+## 📘 API Endpoints Overview
+
+| Method | Endpoint                | Description                      | Protected |
+|--------|-------------------------|----------------------------------|:---------:|
+| POST   | /api/register           | Register a new user              |    ❌     |
+| POST   | /api/login              | User login (JWT issued)          |    ❌     |
+| GET    | /api/events             | List all events                  |    ✅     |
+| POST   | /api/events             | Create a new event               |    ✅     |
+| GET    | /api/events/stats       | Get event statistics             |    ✅     |
+| GET    | /api/events/:id         | Get event by ID                  |    ✅     |
+| PUT    | /api/events/:id         | Update event by ID               |    ✅     |
+| DELETE | /api/events/:id         | Delete event by ID               |    ✅     |
+
+**All protected endpoints require JWT authentication. Validation is performed for event creation, update, and ID parameters.**
+
+---
+
 ## 🧪 Testing
 
 Run tests using Docker or locally:
