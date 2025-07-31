@@ -26,6 +26,13 @@ This is the backend for a **collaborative event management platform** built usin
 
 ---
 
+## 🎥 Demo
+
+[![Watch the demo](https://img.youtube.com/vi/0IjU6OoViBg/hqdefault.jpg)](https://youtu.be/0IjU6OoViBg)
+
+---
+
+
 ## 📥 Installation
 
 ### Option 1: Local Development (without Docker)

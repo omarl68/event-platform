@@ -11,10 +11,8 @@ import notFound from './core/middleware/notFound';
 import errors from './core/middleware/errors';
 import limiter from './core/middleware/limiter';
 import { AppConfig } from './config/envVar';
-import dotenv from 'dotenv';
 
 const app: Express = express(); 
-dotenv.config();
 
 const corsOptions = {
   origin: AppConfig.corsUrl,

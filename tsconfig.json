@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "es2019",
-    "lib": ["es6"],
+    "lib": ["esnext"],
     "module": "commonjs",
     "rootDir": "./src",
     "resolveJsonModule": true,
@@ -13,7 +13,9 @@
     "skipLibCheck": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "typeRoots": ["./node_modules/@types"],
+    "types": ["node", "jest"]
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "dist", "logs"]
